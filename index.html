@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zadanie rekrutacyjne - Digispot</title>
+    <meta name="description" content="Kalkulator cen Digispot">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="dist/app.css">
+    <script src="dist/app.js" defer></script>
+</head>
+<body>
+    <main class="pricing-page">
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-section__title">Przejrzyste ceny bez ukrytych opłat</h1>
+                <p class="hero-section__text">
+                    Płacisz tylko za to, czego potrzebujesz. Wybierz moduły i liczbę słuchaczy —
+                    koszt obliczy się automatycznie.
+                </p>
+            </div>
+        </section>
+
+        <section class="pricing-section" aria-labelledby="pricing-heading">
+            <div class="container">
+                <div class="pricing-section__grid">
+                    <div class="pricing-calculator">
+                        <div class="pricing-calculator__students-header">
+                            <h2 id="pricing-heading" class="pricing-calculator__title">
+                                Wybierz lub wpisz liczbę słuchaczy Twojej szkoły:
+                            </h2>
+                            <input
+                                type="number"
+                                class="students-input"
+                                id="students-input"
+                                min="1"
+                                max="1000"
+                                value="200"
+                                aria-label="Liczba słuchaczy"
+                            >
+                        </div>
+
+                        <div class="students-slider">
+                            <div class="students-slider__track-wrap">
+                                <input
+                                    type="range"
+                                    class="students-slider__input"
+                                    id="students-range"
+                                    min="1"
+                                    max="1000"
+                                    value="200"
+                                    step="1"
+                                    aria-label="Liczba słuchaczy"
+                                >
+                                <output class="students-slider__bubble" id="students-bubble" for="students-range">200</output>
+                            </div>
+                        </div>
+
+                        <h3 class="pricing-calculator__subtitle">Wybierz moduły, z których chcesz korzystać:</h3>
+
+                        <div class="modules-layout" id="modules-grid">
+                            <div class="modules-layout__left">
+                                <label class="module-toggle module-toggle--locked is-active" data-module="edziennik" data-price="1">
+                                    <input type="checkbox" class="module-toggle__input" checked disabled>
+                                    <span class="module-toggle__label">E-dziennik</span>
+                                    <span class="module-toggle__switch" aria-hidden="true"></span>
+                                </label>
+
+                                <label class="module-toggle module-toggle--locked is-active" data-module="sekretariat" data-price="1">
+                                    <input type="checkbox" class="module-toggle__input" checked disabled>
+                                    <span class="module-toggle__label">Sekretariat</span>
+                                    <span class="module-toggle__switch" aria-hidden="true"></span>
+                                </label>
+
+                                <div class="pricing-calculator__info">
+                                    <span class="pricing-calculator__info-icon" aria-hidden="true"></span>
+                                    <p>
+                                        Moduły <strong>Sekretariat</strong> i <strong>E-dziennik</strong> są
+                                        podstawą systemu i zawsze wliczone w cenę (po 1&nbsp;zł za słuchacza).
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="modules-layout__right">
+                                <label class="module-toggle" data-module="platnosci" data-price="0.1">
+                                    <input type="checkbox" class="module-toggle__input">
+                                    <span class="module-toggle__label">Płatności online</span>
+                                    <span class="module-toggle__switch" aria-hidden="true"></span>
+                                </label>
+
+                                <label class="module-toggle" data-module="finanse" data-price="0.2">
+                                    <input type="checkbox" class="module-toggle__input">
+                                    <span class="module-toggle__label">Finanse</span>
+                                    <span class="module-toggle__switch" aria-hidden="true"></span>
+                                </label>
+
+                                <label class="module-toggle" data-module="elearning" data-price="0.3">
+                                    <input type="checkbox" class="module-toggle__input">
+                                    <span class="module-toggle__label">E-learning</span>
+                                    <span class="module-toggle__switch" aria-hidden="true"></span>
+                                </label>
+
+                                <label class="module-toggle" data-module="nauczanie" data-price="0.4">
+                                    <input type="checkbox" class="module-toggle__input">
+                                    <span class="module-toggle__label">Nauczanie online</span>
+                                    <span class="module-toggle__switch" aria-hidden="true"></span>
+                                </label>
+
+                                <label class="module-toggle" data-module="rejestracja" data-price="0.2">
+                                    <input type="checkbox" class="module-toggle__input">
+                                    <span class="module-toggle__label">Rejestracja</span>
+                                    <span class="module-toggle__switch" aria-hidden="true"></span>
+                                </label>
+
+                                <label class="module-toggle" data-module="crm" data-price="0.3">
+                                    <input type="checkbox" class="module-toggle__input">
+                                    <span class="module-toggle__label">CRM</span>
+                                    <span class="module-toggle__switch" aria-hidden="true"></span>
+                                </label>
+
+                                <label class="module-toggle" data-module="medioteka" data-price="0.1">
+                                    <input type="checkbox" class="module-toggle__input">
+                                    <span class="module-toggle__label">Medioteka</span>
+                                    <span class="module-toggle__switch" aria-hidden="true"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-summary-wrap">
+                        <aside class="pricing-summary" aria-labelledby="summary-heading">
+                            <h2 id="summary-heading" class="pricing-summary__title">Twoje koszty korzystania</h2>
+
+                            <dl class="pricing-summary__details">
+                                <div class="pricing-summary__row">
+                                    <dt>Liczba słuchaczy:</dt>
+                                    <dd id="summary-students">200</dd>
+                                </div>
+                                <div class="pricing-summary__row">
+                                    <dt>Miesięczna cena za słuchacza:</dt>
+                                    <dd id="summary-per-student">2,00 zł</dd>
+                                </div>
+                            </dl>
+
+                            <div class="pricing-summary__total">
+                                <div class="pricing-summary__row pricing-summary__row--gross">
+                                    <span class="pricing-summary__total-label">Miesięczny koszt brutto:</span>
+                                    <span class="pricing-summary__total-value" id="summary-gross">492,00 zł</span>
+                                </div>
+                                <div class="pricing-summary__row pricing-summary__row--net">
+                                    <span class="pricing-summary__net-label">Miesięczny koszt netto:</span>
+                                    <span class="pricing-summary__net-value" id="summary-net">400,00 zł</span>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <button type="button" class="pricing-summary__cta" id="order-btn">
+                            Wypróbuj za darmo przez 14 dni
+                            <span class="pricing-summary__cta-arrow" aria-hidden="true">&rsaquo;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" aria-label="Opis modułów">
+            <div class="container">
+                <div class="features-section__layout">
+                    <nav class="features-nav" id="features-nav" aria-label="Nawigacja modułów">
+                        <a href="#feature-sekretariat" class="features-nav__link is-active" data-feature="sekretariat">
+                            <span class="features-nav__icon features-nav__icon--sekretariat" aria-hidden="true"></span>
+                            Sekretariat
+                        </a>
+                        <a href="#feature-edziennik" class="features-nav__link" data-feature="edziennik">
+                            <span class="features-nav__icon features-nav__icon--edziennik" aria-hidden="true"></span>
+                            E-dziennik
+                        </a>
+                        <a href="#feature-finanse" class="features-nav__link" data-feature="finanse">
+                            <span class="features-nav__icon features-nav__icon--finanse" aria-hidden="true"></span>
+                            Finanse
+                        </a>
+                        <a href="#feature-elearning" class="features-nav__link" data-feature="elearning">
+                            <span class="features-nav__icon features-nav__icon--elearning" aria-hidden="true"></span>
+                            E-learning
+                        </a>
+                        <a href="#feature-nauczanie" class="features-nav__link" data-feature="nauczanie">
+                            <span class="features-nav__icon features-nav__icon--nauczanie" aria-hidden="true"></span>
+                            Nauczanie online
+                        </a>
+                        <a href="#feature-rejestracja" class="features-nav__link" data-feature="rejestracja">
+                            <span class="features-nav__icon features-nav__icon--rejestracja" aria-hidden="true"></span>
+                            Rejestracja
+                        </a>
+                        <a href="#feature-platnosci" class="features-nav__link" data-feature="platnosci">
+                            <span class="features-nav__icon features-nav__icon--platnosci" aria-hidden="true"></span>
+                            Płatności online
+                        </a>
+                        <a href="#feature-crm" class="features-nav__link" data-feature="crm">
+                            <span class="features-nav__icon features-nav__icon--crm" aria-hidden="true"></span>
+                            CRM
+                        </a>
+                        <a href="#feature-medioteka" class="features-nav__link" data-feature="medioteka">
+                            <span class="features-nav__icon features-nav__icon--medioteka" aria-hidden="true"></span>
+                            Medioteka
+                        </a>
+                    </nav>
+
+                    <div class="features-content" id="features-content">
+                        <article class="feature-card is-active" id="feature-sekretariat" data-feature="sekretariat">
+                            <img class="feature-card__image" src="assets/img/features/sekretariat.png" alt="Sekretariat" width="280" height="280" loading="lazy">
+                            <div class="feature-card__body">
+                                <h2 class="feature-card__title">Sekretariat</h2>
+                                <p class="feature-card__text">
+                                    Zarządzaj szkołą z dowolnego miejsca — baza słuchaczy, lektorów i grup,
+                                    planowanie zajęć, powiadomienia e-mail i SMS oraz raporty i statystyki.
+                                </p>
+                                <a href="#" class="feature-card__more">Dowiedz się więcej &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="feature-card" id="feature-edziennik" data-feature="edziennik">
+                            <img class="feature-card__image" src="assets/img/features/edziennik.png" alt="E-dziennik" width="280" height="280" loading="lazy">
+                            <div class="feature-card__body">
+                                <h2 class="feature-card__title">E-dziennik</h2>
+                                <p class="feature-card__text">
+                                    Oceny, frekwencja i komunikacja z rodzicami w jednym miejscu.
+                                    Śledź postępy słuchaczy i zatwierdzaj wyniki testów bez papierologii.
+                                </p>
+                                <a href="#" class="feature-card__more">Dowiedz się więcej &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="feature-card" id="feature-finanse" data-feature="finanse">
+                            <img class="feature-card__image" src="assets/img/features/finanse.png" alt="Finanse" width="280" height="280" loading="lazy">
+                            <div class="feature-card__body">
+                                <h2 class="feature-card__title">Finanse</h2>
+                                <p class="feature-card__text">
+                                    Rozliczenia, faktury i przejrzyste raporty finansowe.
+                                    Kontroluj przychody szkoły w czasie rzeczywistym.
+                                </p>
+                                <a href="#" class="feature-card__more">Dowiedz się więcej &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="feature-card" id="feature-elearning" data-feature="elearning">
+                            <img class="feature-card__image" src="assets/img/features/elearning.png" alt="E-learning" width="280" height="280" loading="lazy">
+                            <div class="feature-card__body">
+                                <h2 class="feature-card__title">E-learning</h2>
+                                <p class="feature-card__text">
+                                    Materiały, testy i zadania online dostępne dla słuchaczy o każdej porze.
+                                    Integracja z popularnymi platformami edukacyjnymi.
+                                </p>
+                                <a href="#" class="feature-card__more">Dowiedz się więcej &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="feature-card" id="feature-nauczanie" data-feature="nauczanie">
+                            <img class="feature-card__image" src="assets/img/features/nauczanie.png" alt="Nauczanie online" width="280" height="280" loading="lazy">
+                            <div class="feature-card__body">
+                                <h2 class="feature-card__title">Nauczanie online</h2>
+                                <p class="feature-card__text">
+                                    Wirtualne lekcje z kalendarzem, listą grup i integracją z Zoom,
+                                    EduSky i mLearning — wszystko w jednym panelu.
+                                </p>
+                                <a href="#" class="feature-card__more">Dowiedz się więcej &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="feature-card" id="feature-rejestracja" data-feature="rejestracja">
+                            <img class="feature-card__image" src="assets/img/features/rejestracja.png" alt="Rejestracja" width="280" height="280" loading="lazy">
+                            <div class="feature-card__body">
+                                <h2 class="feature-card__title">Rejestracja</h2>
+                                <p class="feature-card__text">
+                                    Zapisy online, formularze dla nowych kursantów i automatyczne
+                                    przypisywanie do grup — bez ręcznego przepisywania danych.
+                                </p>
+                                <a href="#" class="feature-card__more">Dowiedz się więcej &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="feature-card" id="feature-platnosci" data-feature="platnosci">
+                            <img class="feature-card__image" src="assets/img/features/platnosci.png" alt="Płatności online" width="280" height="280" loading="lazy">
+                            <div class="feature-card__body">
+                                <h2 class="feature-card__title">Płatności online</h2>
+                                <p class="feature-card__text">
+                                    Przyjmuj opłaty za kursy przez internet. Słuchacze płacą wygodnie,
+                                    a Ty masz pełny wgląd w rozliczenia w systemie.
+                                </p>
+                                <a href="#" class="feature-card__more">Dowiedz się więcej &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="feature-card" id="feature-crm" data-feature="crm">
+                            <img class="feature-card__image" src="assets/img/features/crm.png" alt="CRM" width="280" height="280" loading="lazy">
+                            <div class="feature-card__body">
+                                <h2 class="feature-card__title">CRM</h2>
+                                <p class="feature-card__text">
+                                    Zarządzaj kontaktami z potencjalnymi i obecnymi klientami.
+                                    Powiadomienia o spotkaniach i pełna historia komunikacji.
+                                </p>
+                                <a href="#" class="feature-card__more">Dowiedz się więcej &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="feature-card" id="feature-medioteka" data-feature="medioteka">
+                            <img class="feature-card__image" src="assets/img/features/medioteka.png" alt="Medioteka" width="280" height="280" loading="lazy">
+                            <div class="feature-card__body">
+                                <h2 class="feature-card__title">Medioteka</h2>
+                                <p class="feature-card__text">
+                                    Centralne repozytorium materiałów dydaktycznych — pliki, nagrania
+                                    i dokumenty dostępne dla lektorów i grup w jednym miejscu.
+                                </p>
+                                <a href="#" class="feature-card__more">Dowiedz się więcej &rarr;</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
