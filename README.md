@@ -1,6 +1,4 @@
-# Zadanie rekrutacyjne — Digispot
-
-Strona kalkulatora cen z modułami i opisem funkcji.
+# Strona kalkulatora cen z modułami i opisem funkcji.
 
 ## Uruchomienie
 
