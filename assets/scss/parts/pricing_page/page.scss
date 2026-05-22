@@ -1,0 +1,9 @@
+@use '../../global/variables' as *;
+@use 'icons';
+@use 'calculator';
+@use 'features';
+
+.pricing-page {
+    background: $color-bg;
+    min-height: 100vh;
+}

@@ -1,0 +1,18 @@
+@mixin nav-icon($name) {
+    background-image: url('../../img/icons/#{$name}.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.features-nav__icon {
+    &--edziennik { @include nav-icon('edziennik-ikona'); }
+    &--sekretariat { @include nav-icon('sekretariat-ikona'); }
+    &--platnosci { @include nav-icon('platnoscionline-ikona'); }
+    &--finanse { @include nav-icon('finanse-ikona'); }
+    &--elearning { @include nav-icon('elearning-ikona'); }
+    &--nauczanie { @include nav-icon('nauczanie-ikona'); }
+    &--rejestracja { @include nav-icon('rejestracja-ikona'); }
+    &--crm { @include nav-icon('crm-ikona'); }
+    &--medioteka { @include nav-icon('medioteka-ikona'); }
+}
